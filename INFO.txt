@@ -1,0 +1,22 @@
+Sprite handling
+
+Dynamic Sprite resizing maintaining its ratio.
+Data handling
+
+    xml handling
+
+        Load a XML without trouble. 
+
+    FlashVars
+
+        Only one function to load one Flash Var at the time 
+
+Array handling
+
+Use an array as an endless loop.
+Array paging
+
+Select a number of pages or a number of items per page.
+Content management
+
+Load classes inside a SWF, or load a Font to apply to a TextField. Work with audio and images. 

@@ -1,4 +1,4 @@
-﻿  /**
+  /**
 	ArbolNegro - actionscript3 multipurpose code
     Copyright (C) 2010  Sebastián Sanabria Díaz - arbolnegro.absulit.net - arbolnegroaAS3@gmail.com - admin@absulit.net
 
@@ -16,9 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
    */
 
-
-package net.absulit.arbolnegro.data
-{
+package net.absulit.arbolnegro.data {
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.HTTPStatusEvent;
@@ -29,31 +27,28 @@ package net.absulit.arbolnegro.data
 	import flash.net.URLRequest;
 	import net.absulit.arbolnegro.interfaces.Destroy;
 	
+	
 	[Event(name="complete", type="flash.events.Event")]
 	[Event(name="httpStatus", type="flash.events.HTTPStatusEvent")]
 	[Event(name="securityError", type="flash.events.SecurityErrorEvent")]
 	[Event(name="progress", type="flash.events.ProgressEvent")]
 	[Event(name="ioError", type="flash.events.IOErrorEvent")]
 	[Event(name="securityError", type="flash.events.SecurityErrorEvent")]
-	
-	
 	/**
-	 * A simple way to handle the loading of XML data based on a String path.
-	 * @author Sebastián Sanabria Díaz
+	 * ...
+	 * @author Sebastian Sanabria Diaz
 	 */
-	public class XMLHandler extends EventDispatcher implements Destroy {
+	public class JSONHandler extends EventDispatcher implements Destroy {
 		private var _path:String;
-		private var _xml:XML;
 		private var _urlLoader:URLLoader;
-		public function XMLHandler()
-		{
+		private var _json:Object;
+		public function JSONHandler() {
 			init();
 		}
 		
-		private function init():void
-		{
-			_path = "";
-			_xml = new XML();
+
+		
+		private function init():void {
 			_urlLoader = new URLLoader();
 			_urlLoader.addEventListener(Event.INIT, onInitEvent);
 			_urlLoader.addEventListener(Event.COMPLETE, onCompleteURLLoader)
@@ -84,27 +79,25 @@ package net.absulit.arbolnegro.data
 		}
 		
 		private function onCompleteURLLoader(e:Event):void {
-			_xml = new XML(_urlLoader.data);
+			_json = JSON.parse(_urlLoader.data);
 			dispatchEvent(e);
 		}
-		/**
-		 * Local or remote address to the XML source
-		 */
-		public function get path():String { return _path; }
-		/**
-		 * Local or remote address to the XML source
-		 */
-		public function set path(value:String):void
-		{
+		
+		public function get path():String {
+			return _path;
+		}
+		
+		public function set path(value:String):void {
 			_path = value;
 			_urlLoader.load(new URLRequest(_path));
 		}
-		/**
-		 * The current XML instance loaded
-		 */
-		public function get xml():XML { return _xml; }
+		
+		public function get json():Object {
+			return _json;
+		}
 		
 		/* INTERFACE net.absulit.arbolnegro.interfaces.Destroy */
+		
 		public function destroy():void {
 			_urlLoader.removeEventListener(Event.INIT, onInitEvent);
 			_urlLoader.removeEventListener(Event.COMPLETE, onCompleteURLLoader)
@@ -114,8 +107,9 @@ package net.absulit.arbolnegro.data
 			_urlLoader.removeEventListener(SecurityErrorEvent.SECURITY_ERROR, onSecurityError);
 			_urlLoader = null;
 			_path = null;
-			_xml = null;
+			_json = null;
 		}
+		
 	}
 
 }

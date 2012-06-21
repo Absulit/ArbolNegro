@@ -1,6 +1,6 @@
   /**
 	ArbolNegro - actionscript3 multipurpose code
-    Copyright (C) 2010  Sebastián Sanabria Díaz - arbolnegro.absulit.net - arbolnegroaAS3@gmail.com - admin@absulit.net
+    Copyright (C) 2012  Sebastián Sanabria Díaz - arbolnegro.absulit.net - arbolnegroaAS3@gmail.com - admin@absulit.net
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

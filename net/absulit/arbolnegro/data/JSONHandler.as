@@ -17,6 +17,7 @@
    */
 
 package net.absulit.arbolnegro.data {
+	import net.absulit.arbolnegro.events.JSONHandlerEvent;
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.HTTPStatusEvent;
@@ -79,8 +80,13 @@ package net.absulit.arbolnegro.data {
 		}
 		
 		private function onCompleteURLLoader(e:Event):void {
-			_json = JSON.parse(_urlLoader.data);
-			dispatchEvent(e);
+			try {
+				_json = JSON.parse(_urlLoader.data);
+				dispatchEvent(e);
+			}catch (err:Error) {
+				_json = null;
+				dispatchEvent(new JSONHandlerEvent(JSONHandlerEvent.INVALID_JSON_INPUT));
+			}
 		}
 		
 		public function get path():String {

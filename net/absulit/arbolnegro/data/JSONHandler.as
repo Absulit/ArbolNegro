@@ -29,6 +29,7 @@ package net.absulit.arbolnegro.data {
 	import net.absulit.arbolnegro.interfaces.Destroy;
 	
 	
+	[Event(name="invalidJSONInput", type="net.absulit.arbolnegro.events.JSONHandlerEvent")]
 	[Event(name="complete", type="flash.events.Event")]
 	[Event(name="httpStatus", type="flash.events.HTTPStatusEvent")]
 	[Event(name="securityError", type="flash.events.SecurityErrorEvent")]

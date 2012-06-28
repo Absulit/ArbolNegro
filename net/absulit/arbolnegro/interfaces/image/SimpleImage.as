@@ -30,6 +30,10 @@ package net.absulit.arbolnegro.interfaces.image {
 	import net.absulit.arbolnegro.interfaces.Destroy; 
 	
 	[Event(name="complete", type="flash.events.Event")]
+	[Event(name="init", type="flash.events.Event")]
+	[Event(name="progress", type="flash.events.ProgressEvent")]
+	[Event(name="ioError", type = "flash.events.IOErrorEvent")]
+	[Event(name="securityError", type="flash.events.SecurityErrorEvent")]
 	/**
 	 * Loads image files and swf
 	 * @author Sebastián Sanabria Díaz

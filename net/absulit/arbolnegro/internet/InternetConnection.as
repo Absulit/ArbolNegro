@@ -22,6 +22,9 @@ package net.absulit.arbolnegro.internet{
 	import flash.events.EventDispatcher;
 	import flash.net.NetworkInfo;
 	import flash.net.NetworkInterface;
+	
+	[Event(name="networkChange", type="flash.events.Event")]
+	
 	/**
 	 * This class provides network info
 	 * Keep in mind

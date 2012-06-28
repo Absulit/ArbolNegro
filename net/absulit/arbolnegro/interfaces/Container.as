@@ -467,12 +467,14 @@ package  net.absulit.arbolnegro.interfaces{
 		
 		public function destroy():void {
 			//_content.removeEventListener(MouseEvent.MOUSE_MOVE,onMouseMoveDrag);
-			_content.removeEventListener(MouseEvent.MOUSE_UP,onMouseUpDrag);
-			_content.removeEventListener(MouseEvent.MOUSE_DOWN,onMouseDownDrag);
-			_content.removeEventListener(MouseEvent.MOUSE_OUT, onMouseUpDrag);
-			_content.removeEventListener(MouseEvent.MOUSE_MOVE, onMouseMoveScroll);
-			_content.removeEventListener(Event.ENTER_FRAME, onEnterFrameDrag);
-			_content = null;
+			if(_content != null){
+				_content.removeEventListener(MouseEvent.MOUSE_UP,onMouseUpDrag);
+				_content.removeEventListener(MouseEvent.MOUSE_DOWN,onMouseDownDrag);
+				_content.removeEventListener(MouseEvent.MOUSE_OUT, onMouseUpDrag);
+				_content.removeEventListener(MouseEvent.MOUSE_MOVE, onMouseMoveScroll);
+				_content.removeEventListener(Event.ENTER_FRAME, onEnterFrameDrag);
+				_content = null;
+			}
 			
 			_x = _y = _width = _height = NaN;
 			_tweenX = _tweenY = null;

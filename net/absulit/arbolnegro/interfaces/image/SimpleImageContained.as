@@ -129,18 +129,19 @@ package net.absulit.arbolnegro.interfaces.image {
 		
 		override public function destroy():void {
 			super.destroy();
-			_container.destroy();
-			_container = null;
 			
-			removeChild(_mask);
-			_mask = null;
-			
+			if (_container != null) {
+				_container.destroy();
+				_container = null;
+			}	
+			if (_mask != null) {
+				removeChild(_mask);
+				_mask = null;
+			}			
 			if (_borderLine != null) {
 				removeChild(_borderLine);
 				_borderLine = null;				
-			}
-
-			
+			}			
 			_border = false;
 		}
 	}

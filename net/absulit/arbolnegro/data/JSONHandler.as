@@ -32,7 +32,6 @@ package net.absulit.arbolnegro.data {
 	[Event(name="invalidJSONInput", type="net.absulit.arbolnegro.events.JSONHandlerEvent")]
 	[Event(name="complete", type="flash.events.Event")]
 	[Event(name="httpStatus", type="flash.events.HTTPStatusEvent")]
-	[Event(name="securityError", type="flash.events.SecurityErrorEvent")]
 	[Event(name="progress", type="flash.events.ProgressEvent")]
 	[Event(name="ioError", type="flash.events.IOErrorEvent")]
 	[Event(name="securityError", type="flash.events.SecurityErrorEvent")]

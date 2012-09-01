@@ -45,13 +45,11 @@ package net.absulit.arbolnegro.data
 		private var _path:String;
 		private var _xml:XML;
 		private var _urlLoader:URLLoader;
-		public function XMLHandler()
-		{
+		public function XMLHandler() {
 			init();
 		}
 		
-		private function init():void
-		{
+		private function init():void {
 			_path = "";
 			_xml = new XML();
 			_urlLoader = new URLLoader();

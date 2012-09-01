@@ -50,9 +50,14 @@ package net.absulit.arbolnegro.interfaces {
 		 * Writes an object with an EOL
 		 * @param	value an object to be printed
 		 */
-		public function wl(value:Object):void {
+		public function wl(...rest):void {
 			//appendText('> ' + line + '\n');
-			this.htmlText += ' ' + value.toString() + '<br/>';
+			var value:String;
+			for each (var item:Object in rest) {
+				value += String(item) + " ";
+			}
+			
+			this.htmlText += ' ' + value+ '<br/>';
 			this.scrollV = this.maxScrollV;
 			setSelection(text.length,text.length);
 		}

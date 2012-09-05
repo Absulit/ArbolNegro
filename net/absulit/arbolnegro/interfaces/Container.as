@@ -89,7 +89,9 @@ package  net.absulit.arbolnegro.interfaces{
 			_friction = .9;
 		}
 		
-		
+		/**
+		 * Set with ContainerScaleStates class
+		 */
 		public function get scaleState():String { return _scaleState; }
 		
 		public function set scaleState(value:String):void {

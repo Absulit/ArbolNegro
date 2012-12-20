@@ -205,8 +205,7 @@ package net.absulit.arbolnegro.data {
 		
 		public function hasItem(value:*):Boolean {
 			var exists:Boolean = false;
-			for each (var item:* in this) 
-			{
+			for each (var item:* in this){
 				if (item == value) {
 					exists = true;
 					break;

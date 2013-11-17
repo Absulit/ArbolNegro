@@ -29,9 +29,8 @@ package net.absulit.arbolnegro.data {
 		private var _path:String;
 		private var _file:File;
 		private var _fileStream: FileStream;
-		public function TextFile(path:String, append:Boolean = true) {
+		public function TextFile(path:String) {
 			_path = path;
-			_append = append;
 			init();
 		}
 		

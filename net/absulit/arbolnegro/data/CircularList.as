@@ -170,7 +170,7 @@ package net.absulit.arbolnegro.data {
 		}
 		
 		/**
-		 * Return the firs item
+		 * Return the first item
 		 * @return the item in the first position
 		 */
 		public function first():*{
@@ -203,6 +203,11 @@ package net.absulit.arbolnegro.data {
 			return index;
 		}
 		
+		/**
+		 * Checks if item already exists in the List
+		 * @param	value item to find
+		 * @return true if exists
+		 */
 		public function hasItem(value:*):Boolean {
 			var exists:Boolean = false;
 			for each (var item:* in this){

@@ -49,7 +49,7 @@ package net.absulit.arbolnegro.interfaces.image {
 			init();
 		}
 		
-		private function init():void {
+		protected function init():void {
 			_path = "";
 			_smooth = false;
 			_loadComplete = false;

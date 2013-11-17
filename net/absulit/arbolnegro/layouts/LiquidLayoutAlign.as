@@ -19,7 +19,7 @@
 package net.absulit.arbolnegro.layouts 
 {
 	/**
-	 * ...
+	 * Constants to use with LiquidLayoutObject
 	 * @author Sebastián Sanabria Díaz
 	 */
 	public class LiquidLayoutAlign 

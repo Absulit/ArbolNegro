@@ -35,10 +35,10 @@ package net.absulit.arbolnegro.interfaces.image {
 		private var _border:Boolean;
 		public function SimpleImageContained() {
 			super();
-			init();
 		}
 		
-		private function init():void {			
+		override protected function init():void {			
+			super.init();
 			_container = new Container();
 			_container.scaleState = ContainerScaleStates.AUTO
 			_container.width = 80;

@@ -1,7 +1,7 @@
 package net.absulit.arbolnegro.data {
 	import flash.system.Capabilities;
 	/**
-	 * ...
+	 * Handles pixel convertion between screens devices
 	 * @author Sebastian Sanabria Diaz
 	 */
 	public class DPIManager {

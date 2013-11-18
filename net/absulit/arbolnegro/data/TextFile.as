@@ -29,6 +29,7 @@ package net.absulit.arbolnegro.data {
 		private var _path:String;
 		private var _file:File;
 		private var _fileStream: FileStream;
+		private var _isOpen:Boolean;
 		public function TextFile(path:String) {
 			_path = path;
 			init();
@@ -41,6 +42,7 @@ package net.absulit.arbolnegro.data {
 			_file = new File(_path);
 			_fileStream = new FileStream();
 			_fileStream.open(_file, FileMode.UPDATE);
+			_isOpen = true;
 		}
 		
 		/**
@@ -49,6 +51,9 @@ package net.absulit.arbolnegro.data {
 		 */
 		public function write(value:String):void {
 			// TODO: position:Number = null agregar parametro para introducir texto en posicion
+			if (!_isOpen) {
+				init();
+			}
 			_fileStream.position = _fileStream.bytesAvailable;
 			_fileStream.writeMultiByte(value, File.systemCharset);
 		}
@@ -58,7 +63,10 @@ package net.absulit.arbolnegro.data {
 		 * @param	value
 		 */
 		public function writeln(value:String):void {
-			_fileStream.writeMultiByte(value + "\r\n", File.systemCharset);
+			if (!_isOpen) {
+				init();
+			}
+			_fileStream.writeMultiByte(value + "\n\r", File.systemCharset);
 		}
 		
 		/**
@@ -73,24 +81,39 @@ package net.absulit.arbolnegro.data {
 		 */
 		public function close():void {
 			_fileStream.close();
+			_isOpen = false;
 		}
 		
 		/**
 		 * Reads one line from the current position
-		 * @return the line read
+		 * @return the line read or null if file does not exists
 		 */
 		public function readln():String {
 			var char:String;
-			var line:String = "";			
-			while(_fileStream.position < _fileStream.bytesAvailable){
-				char = _fileStream.readUTFBytes(1);
-				if(char == "\n"){
-					break;
-				}else{
-					line.concat(char);
+			var line:String;
+			if (_isOpen) {
+				line = "";
+				while(_fileStream.position < _fileStream.bytesAvailable){
+					char = _fileStream.readUTFBytes(1);
+					if(char == "\n"){
+						break;
+					}else{
+						line.concat(char);
+					}
 				}
 			}
 			return line;			
+		}
+		
+		/**
+		 * Remove or delete file
+		 */
+		public function remove():void {
+			if (_isOpen) {
+				_fileStream.close();
+				_isOpen = false;
+			}
+			_file.deleteFile();
 		}
 		
 	}
